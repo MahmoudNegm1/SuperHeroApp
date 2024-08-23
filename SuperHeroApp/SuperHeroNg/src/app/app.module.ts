@@ -4,14 +4,18 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EditSuperHeroComponent } from './Components/edit-super-hero/edit-super-hero.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditSuperHeroComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [provideHttpClient(withFetch())]
 ,  bootstrap: [AppComponent]

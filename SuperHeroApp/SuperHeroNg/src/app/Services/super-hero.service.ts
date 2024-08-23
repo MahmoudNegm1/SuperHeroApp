@@ -13,7 +13,21 @@ export class SuperHeroService {
   constructor( private _httpClient :HttpClient) { }
 
   public getSuperHeroes ():Observable<SuperHero[]>{
-return this ._httpClient.get<SuperHero[]>(`${environment.apiUrl}/${this.url}/getAllSuperHeros`);
-
-  }
+    return this ._httpClient.get<SuperHero[]>(`${environment.apiUrl}/${this.url}/getAllSuperHeros`);
+      } 
+      
+public updateHero (hero :SuperHero):Observable<SuperHero[]>{
+        return this ._httpClient.put<SuperHero[]>(`${environment.apiUrl}/${this.url}`,hero);
+          }  
+         
+public createHero (hero :SuperHero):Observable<SuperHero[]>{
+            return this ._httpClient.post<SuperHero[]>(`${environment.apiUrl}/${this.url}`,hero);
+            
+              }
+              
+public deleteHero (hero :SuperHero):Observable<SuperHero[]>{
+                return this ._httpClient.delete<SuperHero[]>
+                (`${environment.apiUrl}/${this.url}/${hero.id}`);
+                
+                  }
 }
