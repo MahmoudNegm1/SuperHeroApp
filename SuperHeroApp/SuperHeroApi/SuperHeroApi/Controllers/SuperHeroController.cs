@@ -3,7 +3,7 @@ using SuperHeroApi.IRepository;
 
 namespace SuperHeroApi.Controllers
 {
-    [Route("api/SuperHero")]
+    [Route("SuperHero")]
     [ApiController]
     public class SuperHeroController : ControllerBase
     {

@@ -14,7 +14,15 @@ namespace SuperHeroApi
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers();// Configure CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowLocalhost4200",
+                    builder => builder
+                        .WithOrigins("http://localhost:4200") // Specify the allowed origin(s)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -31,7 +39,7 @@ namespace SuperHeroApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors("AllowLocalhost4200");
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
